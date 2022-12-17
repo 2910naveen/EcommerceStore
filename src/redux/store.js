@@ -1,0 +1,13 @@
+//we will createStore in this store.js, we get this createStore from reduxcore
+//this createStore takes reducers,states and redux middleware like reduxThunk and devtool extensions.
+
+import {createStore, applyMiddleware, compose} from 'redux';
+import reducers from './reducers/index';
+import thunk from 'redux-thunk';
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers,composeEnhancers(applyMiddleware(thunk)));
+
+export default store;
+
